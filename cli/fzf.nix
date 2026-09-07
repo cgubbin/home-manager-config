@@ -13,8 +13,8 @@
       "--border"
     ];
 
-    fileWidget.command = "fd --type f";
-    fileWidget.options = [
+    fileWidgetCommand = "fd --type f";
+    fileWidgetOptions = [
       "--preview='bat --style=numbers --color=always {}'"
       "--preview-window=right,60%,border-left"
       "--bind=ctrl-/:toggle-preview"
@@ -22,8 +22,8 @@
       "--bind=alt-j:preview-page-down"
     ];
 
-    changeDirWidget.command = "fd --type d";
-    changeDirWidget.options = [
+    changeDirWidgetCommand = "fd --type d";
+    changeDirWidgetOptions = [
       "--preview='eza --tree --level=2 --color=always {} | head -200'"
       "--preview-window=right,50%,border-left"
       "--bind=ctrl-/:toggle-preview"
@@ -31,7 +31,7 @@
       "--bind=alt-j:preview-page-down"
     ];
 
-    historyWidget.options = [
+    historyWidgetOptions = [
       "--layout=reverse"
       "--border"
     ];

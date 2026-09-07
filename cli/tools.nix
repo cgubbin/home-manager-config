@@ -7,8 +7,6 @@
   home.packages = (
     with pkgs;
       [
-      	zellij
-
         trash-cli
         dust
         duf

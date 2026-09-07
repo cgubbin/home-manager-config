@@ -2,13 +2,13 @@ switch:
     #!/usr/bin/env bash
     set -euo pipefail
 
-    home-manager switch
+    home-manager switch --flake .
 
 update:
     #!/usr/bin/env bash
     set -euo pipefail
 
-    nix-channel --update 
+    nix flake update
 
 
 
