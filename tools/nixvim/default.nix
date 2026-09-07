@@ -8,7 +8,7 @@
     ./completion.nix
     ./keymappings.nix
     ./options.nix
-    # ./plugins
+    ./plugins
     ./themes.nix
   ];
 

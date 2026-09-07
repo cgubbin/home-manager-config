@@ -23,14 +23,14 @@
     ]
   );
 
-  programs.lazygit = mkIf cfg.devTools.enable {
+  programs.lazygit = {
     enable = true;
     settings.git = {
       overrideGpg = true;
     };
   };
 
-  programs.tmux = mkIf cfg.devTools.enable {
+  programs.tmux = {
     enable = true;
     clock24 = true;
     prefix = "C-a";

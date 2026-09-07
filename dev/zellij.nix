@@ -3,17 +3,14 @@
   pkgs,
   lib,
   ...
-}: let
-  inherit (lib) mkIf;
-  cfg = config.home-config.dev;
-in {
-  programs.zellij = mkIf cfg.devTools.enable {
+}: {
+  programs.zellij = {
     enable = true;
     enableFishIntegration = false;
   };
 
   # NOTE: the module only supports YAML config which is deprecated
-  home.file.zellij = mkIf cfg.devTools.enable {
+  home.file.zellij = {
     target = ".config/zellij/config.kdl";
     text = ''
       keybinds {
