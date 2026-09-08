@@ -1,18 +1,38 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
+  nixpkgs = {
+    config.allowUnfree = true;
+  };
   home.username = "cgubbin";
   home.homeDirectory = "/home/cgubbin";
 
   home.stateVersion = "26.05"; # Please read the comment before changing.
 
   imports = [
-  	./cli
+    ./cli
     ./dev
-	./tools
+    ./tools
   ];
 
   home.packages = [
+    pkgs._1password-cli
+    pkgs.cacert
+    pkgs.goofys
+    pkgs.klayout
+    pkgs.wget
+
+    # orchestration
+    pkgs.ansible
+    pkgs.doctl
+    (pkgs.google-cloud-sdk.withExtraComponents [pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin])
+    pkgs.krew
+    pkgs.kubectl
+    pkgs.kubectx
+    pkgs.kubelogin-oidc
+    pkgs.k9s
   ];
 
   home.file = {
@@ -36,6 +56,7 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    BROWSER = /mnt/c + builtins.toPath "/Program Files" + builtins.toPath "/Mozilla Firefox" + builtins.toPath "/firefox.exe";
   };
 
   # Let Home Manager install and manage itself.

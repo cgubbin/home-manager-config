@@ -5,72 +5,73 @@
   ...
 }: {
   home.packages = (
-    with pkgs;
-      [
-        trash-cli
-        dust
-        duf
-        dysk
-        ripgrep
-        htop
-        procs
+    with pkgs; [
+      trash-cli
+      dust
+      duf
+      dysk
+      ripgrep
+      htop
+      procs
 
-        yq-go
-        jq
-        just
-        eza
-        fd
-        tree
-        watch
+      yq-go
+      jq
+      just
+      eza
+      fd
+      tree
+      watch
 
-        watchexec
-        hurl
+      watchexec
+      hurl
 
-        nix-output-monitor
-        noti
-        killall
-        wget
-        tdf
-        see-cat
-        rsync
-        # vault-tasks
-        television
-        restic
-        unar
+      nix-output-monitor
+      noti
+      killall
+      wget
+      tdf
+      see-cat
+      rsync
+      # vault-tasks
+      television
+      restic
+      unar
 
-        hexyl
-        nasm
-        broot
+      hexyl
+      nasm
+      broot
 
-        # Yazi functionality
-        ffmpeg-headless
-        p7zip
-        poppler
-        resvg
-        imagemagick
+      # Yazi functionality
+      ffmpeg-headless
+      p7zip
+      poppler
+      resvg
+      imagemagick
 
-        # Nix linting
-        alejandra
-        deadnix
-        nixd
-        nixfmt
-        statix
+      # Nix linting
+      alejandra
+      deadnix
+      nixd
+      nixfmt
+      statix
 
-        age
-        aerc
-        ast-grep
-        hunspell
-        semgrep
-        shellcheck
-        treefmt
+      age
+      aerc
+      ast-grep
+      hunspell
+      semgrep
+      shellcheck
+      treefmt
 
-        xclip
-        grim
-        slurp
-        valgrind
-        bandwhich
-        proximity-sort
-      ]
+      xclip
+      grim
+      slurp
+      valgrind
+      bandwhich
+      proximity-sort
+
+      claude-code
+    ]
   );
   programs.eza = {
     enable = true;

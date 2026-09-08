@@ -11,8 +11,8 @@
     enable = true;
     settings = {
       user = {
-        name = "cgubbin";
-        email = "chris.gubbin@gmail.com";
+        name = "Christopher Gubbin";
+        email = "christopher.gubbin@wavephotonics.com";
       };
       delta = {
         enable = true;

@@ -6,5 +6,6 @@
     ./git.nix
     ./nixvim
     ./nushell.nix
+    ./obsidian.nix
   ];
 }

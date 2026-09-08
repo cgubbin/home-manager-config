@@ -699,24 +699,28 @@
         set -l kind "$argv[1]"
 
         switch "$kind"
+          case uv
+            echo ~/nix-templates#uv
+          case pixi
+            echo ~/nix-templates#pixi
           case python-app
-            echo ~/Templates/nix-templates#python-app
+            echo ~/nix-templates#python-app
           case python-lib
-            echo ~/Templates/nix-templates#python-lib
+            echo ~/nix-templates#python-lib
           case rust
-            echo ~/Templates/nix-templates#rust
+            echo ~/nix-templates#rust
           case go
-            echo ~/Templates/nix-templates#go
+            echo ~/nix-templates#go
           case quarto
-            echo ~/Templates/nix-templates#quarto
+            echo ~/nix-templates#quarto
           case latex
-            echo ~/Templates/nix-templates#latex
+            echo ~/nix-templates#latex
           case c
-            echo ~/Templates/nix-templates#c
+            echo ~/nix-templates#c
           case cpp
-            echo ~/Templates/nix-templates#cpp
+            echo ~/nix-templates#cpp
           case shell
-            echo ~/Templates/nix-templates#shell
+            emplatesecho ~/nix-templates#shell
           case '*'
             return 1
         end
@@ -819,6 +823,26 @@
         mkproj "$argv[1]" (__mkproj_template_for_kind python-lib) $args
       '';
 
+      mkuv.body = ''
+        if test (count $argv) -eq 0
+          echo "Usage: mkuv <project-name> [--open]"
+          return 1
+        end
+
+        set -l args $argv[2..-1]
+        mkproj "$argv[1]" (__mkproj_template_for_kind uv) $args
+      '';
+
+      mkpixi.body = ''
+        if test (count $argv) -eq 0
+          echo "Usage: mkpixi <project-name> [--open]"
+          return 1
+        end
+
+        set -l args $argv[2..-1]
+        mkproj "$argv[1]" (__mkproj_template_for_kind pixi) $args
+      '';
+
       mkrust.body = ''
         if test (count $argv) -eq 0
           echo "Usage: mkrust <project-name> [--open]"
@@ -911,6 +935,7 @@
       bandwhich = lib.getExe pkgs.bandwhich;
       procs = lib.getExe pkgs.procs;
       lazygit = lib.getExe pkgs.lazygit;
+      aws = lib.getExe pkgs.awscli2;
     in {
       which = "readlink -f (type -p $argv)";
       rebuild-dagon = "cd /home/louis/src/nixos-config && nixos-rebuild switch --flake .#dagon --target-host louis@dagon --use-remote-sudo --impure";
@@ -960,6 +985,13 @@
       # --- Direnv ---
       da = "direnv allow";
       dr = "direnv reload";
+
+      # --- AWS ---
+      awse = "${aws} --endpoint=https://ams3.digitaloceanspaces.com";
+      awss = "${aws} --endpoint=https://ams3.digitaloceanspaces.com s3 sync s3://wavephotonics ~/s3/wavephotonics";
+      awspd = "${aws} --endpoint=https://ams3.digitaloceanspaces.com s3 sync s3://wp-projectdata ~/s3/wp-projectdata";
+      awspu = "${aws} --endpoint=https://ams3.digitaloceanspaces.com s3 sync ~/s3/wp-projectdata s3://wp-projectdata";
+      
     };
 
     interactiveShellInit = ''

@@ -13,8 +13,8 @@
 
         workspaces = [
           {
-            name = "metrology";
-            path = "${config.home.homeDirectory}/obsidian/main/Sensorium";
+            name = "wave";
+            path = "${config.home.homeDirectory}/Obsidian";
             overrides = {
               notes_subdir = "98_INBOX";
 
@@ -24,52 +24,6 @@
                 time_format = "%H:%M";
                 substitutions = {
                   area = "sensorium";
-                };
-              };
-
-              daily_notes = {
-                folder = "daily";
-                date_format = "%Y-%m-%d";
-                alias_format = "%B %-d, %Y";
-                template = "daily.md";
-              };
-            };
-          }
-          # {
-          #   name = "metrology";
-          #   path = "${config.home.homeDirectory}/obsidian/main/Metrology";
-          #   overrides = {
-          #     notes_subdir = "inbox";
-
-          #     templates = {
-          #       folder = "templates";
-          #       date_format = "%Y-%m-%d";
-          #       time_format = "%H:%M";
-          #       substitutions = {
-          #         area = "metrology";
-          #       };
-          #     };
-
-          #     daily_notes = {
-          #       folder = "daily";
-          #       date_format = "%Y-%m-%d";
-          #       alias_format = "%B %-d, %Y";
-          #       template = "daily.md";
-          #     };
-          #   };
-          # }
-          {
-            name = "premed";
-            path = "${config.home.homeDirectory}/obsidian/main/Premed/Premed";
-            overrides = {
-              notes_subdir = "98_INBOX";
-
-              templates = {
-                folder = "99_TEMPLATES";
-                date_format = "%Y-%m-%d";
-                time_format = "%H:%M";
-                substitutions = {
-                  area = "premed";
                 };
               };
 
@@ -150,20 +104,6 @@
               out.created = now
             end
             out.updated = now
-
-            if workspace_name == "premed" then
-              if out.area == nil then out.area = "premed" end
-              if out.status == nil then out.status = "active" end
-              if out.subject == nil then out.subject = "" end
-              if out.topic == nil then out.topic = "" end
-              if out.type == nil then out.type = "" end
-              if out.mastery == nil then out.mastery = "new" end
-              if out.importance == nil then out.importance = "high" end
-            else
-              if out.area == nil then out.area = workspace_name end
-              if out.status == nil then out.status = "seed" end
-              if out.kind == nil then out.kind = "note" end
-            end
 
             return out
           end
@@ -294,7 +234,7 @@
             local path = vim.fn.expand("%:p")
             local home = vim.fn.expand("${config.home.homeDirectory}")
 
-            if path:find(home .. "/obsidian/main", 1, true) == 1 then
+            if path:find(home .. "/Obsidian", 1, true) == 1 then
               vim.opt_local.wrap = true
               vim.opt_local.linebreak = true
               vim.opt_local.breakindent = true
@@ -312,7 +252,7 @@
             local path = vim.fn.expand("%:p")
             local home = vim.fn.expand("${config.home.homeDirectory}")
 
-            if path:find(home .. "/obsidian/main", 1, true) ~= 1 then
+            if path:find(home .. "/Obsidian", 1, true) ~= 1 then
               return
             end
 

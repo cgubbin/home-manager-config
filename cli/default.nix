@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./atuin.nix
+    ./aws.nix
     ./bat.nix
     ./bottom.nix
     ./fzf.nix
