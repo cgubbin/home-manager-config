@@ -71,6 +71,7 @@
       proximity-sort
 
       claude-code
+      zathura
     ]
   );
   programs.eza = {

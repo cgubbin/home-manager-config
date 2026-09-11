@@ -20,19 +20,8 @@
   home.packages = [
     pkgs._1password-cli
     pkgs.cacert
-    pkgs.goofys
     pkgs.klayout
     pkgs.wget
-
-    # orchestration
-    pkgs.ansible
-    pkgs.doctl
-    (pkgs.google-cloud-sdk.withExtraComponents [pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin])
-    pkgs.krew
-    pkgs.kubectl
-    pkgs.kubectx
-    pkgs.kubelogin-oidc
-    pkgs.k9s
   ];
 
   home.file = {
