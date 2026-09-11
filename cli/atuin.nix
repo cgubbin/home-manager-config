@@ -3,7 +3,7 @@
     enable = true;
     enableFishIntegration = true;
     # TODO: the ctrl-r binding collides with fzf
-    flags = [ "--disable-ctrl-r" ];
+    flags = ["--disable-ctrl-r"];
     settings = {
       # Search globally on ctrl-R, and locally on Up Arrow
       search_mode = "fuzzy";
